@@ -1,0 +1,8 @@
+<h2><%= @drug.name %></h2>
+<p><%= @drug.category %></p>
+<p><%= @drug.price %></p>
+<p><%= @drug.description %></p>
+<p><%= @drug.delivery_time %></p>
+
+<%= link_to 'Edit', edit_drug_path(@drug) %>
+<%# <%= link_to 'Delete', drug_path(@drug), data: {turbo-method: :delete, turbo_confirm: 'Are you sure?'} %>
