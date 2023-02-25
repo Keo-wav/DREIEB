@@ -27,6 +27,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  def validate
+  end
+
   # def edit
   #   @order = Order.find(params[:id])
   # end
