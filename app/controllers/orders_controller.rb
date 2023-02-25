@@ -27,7 +27,14 @@ class OrdersController < ApplicationController
     end
   end
 
-  def validate
+  def order_confirm
+    @order = Order.find(params[:id])
+    @order.status = true
+  end
+
+  def order_decline
+    @order = Order.find(params[:id])
+    @order.status = false
   end
 
   # def edit
