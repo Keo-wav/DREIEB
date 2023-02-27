@@ -1,13 +1,17 @@
 header.masthead {
   color: $yellow;
-  background-image: url("home/masthead.png");
+  // background-image: url("home/masthead.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: left center!important;
   background-size: auto;
   background-color: #DFE3E2;
-  text-shadow: 0 0 .7em #0F2E3B;
+  text-shadow: 0 0 0.7em #0f2e3b82;
+  padding-top: 10rem;
 
+  div div{
+    align-items: center;
+  }
   .btn-xl {
     position: relative;
     background-color: #F7CE52;
@@ -15,5 +19,12 @@ header.masthead {
     text-shadow: none;
     color: #8F4C15;
     border-radius: 15px;
+  }
+
+  .masthead-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
