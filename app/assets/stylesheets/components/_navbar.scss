@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(248, 211, 27, 0.782);
+  background: #F2D759;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
 
   .navbar-collapse {
     flex-grow: 0;
@@ -26,6 +31,6 @@
     list-style-type: none;
     padding-top: 15px;
     align-content: center;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Special Elite', sans-serif;
   }
 }
