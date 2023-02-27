@@ -1,0 +1,8 @@
+<h1>coucou les drog</h1>
+
+<ul>
+<% @drugs.each do |drug| %>
+  <li><%= link_to drug.name, drug_path(drug) %></li>
+<% end %>
+<%= link_to 'New drug', new_drug_path %>
+</ul>
