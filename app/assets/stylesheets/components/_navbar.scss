@@ -1,11 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #F2D759;
-  position: static;
+  position: sticky;
   width: 100%;
-  // top: 0;
+  top: 0;
   z-index: 1000;
   margin-right: 10px;
+
 
 
   .navbar-collapse {
@@ -31,8 +32,10 @@
     text-decoration: none;
     list-style-type: none;
     padding-top: 20px;
+    padding-left: 120px;
     align-content: inherit;
     font-family: 'Special Elite', sans-serif;
+
   }
 
   .avatar {

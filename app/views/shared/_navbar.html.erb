@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-      <p class="brand-name">
+      <p class="brand-name d-none d-sm-block">
         DREIEB
       </p>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -20,8 +20,11 @@
           <li class="nav-item">
             <%= link_to "Edit my account", "/users/edit", class: "nav-link" %>
           </li>
+           <li class="nav-item">
+            <%= link_to "Log out", "/users/sign_out", class: "nav-link d-block d-sm-none " %>
+          </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://cataas.com/cat", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://cataas.com/cat", class: "avatar dropdown-toggle d-none d-sm-block", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# <%= link_to "Add a Drug", "/drugs/new", class: "dropdown-item" %>
               <%# <%= link_to "List Drugs", "/drugs", class: "dropdown-item" %>
