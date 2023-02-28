@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #F2D759;
-  position: relative;
+  position: static;
   width: 100%;
   // top: 0;
   z-index: 1000;
@@ -30,8 +30,8 @@
     font-weight: 600;
     text-decoration: none;
     list-style-type: none;
-    padding-top: 15px;
-    align-content: center;
+    padding-top: 20px;
+    align-content: inherit;
     font-family: 'Special Elite', sans-serif;
   }
 
