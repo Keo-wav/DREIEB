@@ -1,5 +1,6 @@
 class DrugsController < ApplicationController
   # before_action :set_drug, only: %I[update destroy]
+  DRUG_TYPE = %w(Mushroom LSD Cannabis Kétamine Amphetamine)
 
   def index
     @drugs = Drug.all
@@ -11,6 +12,7 @@ class DrugsController < ApplicationController
 
   def new
     @drug = Drug.new
+    @type = DRUG_TYPE
   end
 
   def create
