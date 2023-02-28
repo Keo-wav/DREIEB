@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-      <p class="brand-name d-flex">
+      <p class="brand-name">
         DREIEB
       </p>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -18,14 +18,14 @@
             <%= link_to "Drugs", "/drugs", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Account", "#", class: "nav-link" %>
+            <%= link_to "Edit my account", "/users/edit", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://cataas.com/cat", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Add a Drug", "/drug/new", class: "dropdown-item" %>
-                <%= link_to "List Drugs", "/drugs", class: "dropdown-item" %>
-                <%= link_to "Log out", "/user/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%# <%= link_to "Add a Drug", "/drugs/new", class: "dropdown-item" %>
+              <%# <%= link_to "List Drugs", "/drugs", class: "dropdown-item" %>
+              <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <% else %>
