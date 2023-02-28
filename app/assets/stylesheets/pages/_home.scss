@@ -28,3 +28,16 @@ header.masthead {
     object-position: center;
   }
 }
+
+.strikethrough{
+  text-decoration: line-through;
+  color: #8F4C15;
+}
+
+#team{
+
+  .team-member img{
+    width: 8rem;
+    height: 8rem;
+  }
+}
