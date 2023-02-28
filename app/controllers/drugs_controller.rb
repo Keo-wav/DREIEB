@@ -8,6 +8,7 @@ class DrugsController < ApplicationController
 
   def show
     @drug = Drug.find(params[:id])
+    @order = Order.new
   end
 
   def new
