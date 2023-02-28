@@ -9,9 +9,8 @@
 # kill all existing data
 
 p "Destroying all drugs ..."
-p "Destroying all users ..."
-
 Drug.destroy_all
+p "Destroying all users ..."
 User.destroy_all
 
 p "Creating users..."
