@@ -1,3 +1,5 @@
+
+
 <h2><%= @drug.name %></h2>
 <p><%= @drug.category %></p>
 <p><%= @drug.price %></p>
@@ -5,4 +7,14 @@
 <p><%= @drug.delivery_time %></p>
 
 <%= link_to 'Edit', edit_drug_path(@drug) %>
-<%# <%= link_to 'Delete', drug_path(@drug), data: {turbo-method: :delete, turbo_confirm: 'Are you sure?'} %>
+
+<div class="form-group">
+  <%= simple_form_for [@drug, @order] do |f| %>
+    <div class="col-sm-4 col-sm-10">
+      <div class="btn btn-primary">
+        <%= f.button :submit
+        link_to 'Make an order', drug_order_path(@drug) %>
+      </div>
+    </div>
+  <% end %>
+</div>

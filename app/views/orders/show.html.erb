@@ -1,0 +1,9 @@
+<%= link_to 'Home', root_path %>
+<h2>Your order</h2>
+<p><%= @drug.name %></p>
+<p><%= @drug.category %></p>
+<p><%= @drug.price %></p>
+<p><%= @drug.description %></p>
+<p><%= @drug.delivery_time %></p>
+
+<%= link_to 'Back to the drugs', drugs_path %>
