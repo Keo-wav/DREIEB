@@ -1,6 +1,5 @@
 header.masthead {
   color: $yellow;
-  // background-image: url("home/masthead.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: left center!important;
@@ -29,13 +28,18 @@ header.masthead {
   }
 }
 
+.timeline-image {
+  img{
+    border-radius: 50%;
+  }
+}
+
 .strikethrough{
   text-decoration: line-through;
   color: #8F4C15;
 }
 
 #team{
-
   .team-member img{
     width: 8rem;
     height: 8rem;
