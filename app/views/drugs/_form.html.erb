@@ -2,7 +2,9 @@
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :description %>
-  <%= f.input :category %>
+  <%= f.input :category,
+  as: :select,
+  collection: @type.map %>
   <%= f.input :delivery_time %>
   <%= f.button :submit %>
 <% end %>
