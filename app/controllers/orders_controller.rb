@@ -43,9 +43,9 @@ class OrdersController < ApplicationController
   #   redirect_to orders_path, status: :see_other
   # end
 
-  # private
+  private
 
-  # def order_params
-  #   params.require(:order).permit(:status)
-  # end
+  def order_params
+    params.require(:order).permit(:status, :id, :drug_id)
+  end
 end
