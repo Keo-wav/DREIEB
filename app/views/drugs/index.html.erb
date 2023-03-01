@@ -9,7 +9,7 @@
           <div class="card-body">
             <h4 class="card-name"> <%= link_to drug.name, drug_path(drug) %></h4>
             <h5 class="card-category"> <%= drug.category %></h5>
-            <%# <p><%= cl_image_tag @drug.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag drug.photo.key, height: 300, width: 400, crop: :fill %>
             <p class="card-description"> <%= drug.description %></p>
             <p class="card-text">Price : <%= drug.price %>$</p>
           </div>
