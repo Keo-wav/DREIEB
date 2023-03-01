@@ -49,6 +49,6 @@ class DrugsController < ApplicationController
   # end
 
   def drug_params
-    params.require(:drug).permit(:name, :price, :description, :category, :delivery_time)
+    params.require(:drug).permit(:name, :price, :description, :photo, :category, :delivery_time)
   end
 end
