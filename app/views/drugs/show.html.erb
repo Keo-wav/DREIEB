@@ -1,24 +1,41 @@
-<h2><%= @drug.name %></h2>
-<p><%= @drug.category %></p>
-<p><%= @drug.price %></p>
-<%= cl_image_tag @drug.photo.key, height: 300, width: 400, crop: :fill %>
-<p><%= @drug.description %></p>
-<p><%= @drug.delivery_time %></p>
+<div class="d-flex">
+  <div class="edit btn btn-secondary">
+    <%= link_to 'Edit', edit_drug_path(@drug) %>
+  </div>
 
-<% if current_user.id == @drug.user_id || current_user.role == 'admin' %>
-  <%= link_to 'Edit', edit_drug_path(@drug) %>
-<% end %>
+  <div class="delete btn btn-secondary">
+    <%= link_to "Delete",
+      drug_path(@drug),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
+  </div>
+</div>
+
+<div class="card-product">
+  <div class="card-product-infos">
+    <div>
+      <h2><%= @drug.name %></h2>
+      <p><%= @drug.category %></p>
+      <p><%= @drug.price %></p>
+      <%= cl_image_tag @drug.photo.key, height: 300, width: 400, crop: :fill %>
+      <p><%= @drug.description %></p>
+      <p><%= @drug.delivery_time %></p>
+    </div>
+  </div>
+</div>
 
 
 <div class="form-group">
   <%= simple_form_for [@drug, @order] do |f| %>
     <div class="col-sm-4 col-sm-10">
+
       <div class="btn btn-primary">
         <%= f.button :submit %>
       </div>
     </div>
   <% end %>
 </div>
+
 
 
 <% if current_user.id == @drug.user_id || current_user.role == 'admin' %>
