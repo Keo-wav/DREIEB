@@ -4,5 +4,5 @@
 <% @orders.each do |order| %>
   <li><%= link_to order.status, drug_orders_path(drug) %></li>
 <% end %>
-<%= link_to 'New order', new_drug_order_path %>
+<%= link_to 'New order', drug_orders_path(@drug) %>
 </ul>
