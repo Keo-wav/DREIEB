@@ -1,16 +1,18 @@
-<%= simple_form_for @drug do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :category,
-  as: :select,
-  collection: @type.map %>
-  <%= f.input :delivery_time %>
-  <%= f.button :submit %>
-<% end %>
-
-
-
-
-
+<div class="form-group">
+<h1 class="text-center">Create a new drug</h1>
+  <%= simple_form_for @drug do |f| %>
+    <div class= "mx-auto col-10 col-md-8 col-lg-6">
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.input :description %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :category,
+      as: :select,
+      collection: @type.map %>
+      <%= f.input :delivery_time %>
+      <div class="btn btn-primary rounded-4">
+        <%= f.button :submit %>
+      </div>
+    </div>
+  <% end %>
+</div>
