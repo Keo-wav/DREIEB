@@ -19,3 +19,9 @@
     </div>
   <% end %>
 </div>
+
+
+<%= link_to "Delete",
+  drug_path(@drug),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
