@@ -18,11 +18,37 @@ p "Creating users..."
 
 # Create a main sample user.
 user = User.new(
-  :email                 => "admin@test.com",
+  :email                 => "buyer@test.com",
   :password              => "123456",
-  :password_confirmation => "123456"
+  :password_confirmation => "123456",
+  :role                  => "buyer",
+  :username              => "buyer_TCy"
 )
 user.save!
+
+p "buyer created!"
+
+user = User.new(
+  :email                 => "seller@test.com",
+  :password              => "123456",
+  :password_confirmation => "123456",
+  :role                  => "seller",
+  :username              => "seller_kekou"
+)
+user.save!
+
+p "seller created!"
+
+user = User.new(
+  :email                 => "admin@test.com",
+  :password              => "123456",
+  :password_confirmation => "123456",
+  :role                  => "admin",
+  :username              => "admin_root"
+)
+user.save!
+
+p "admin created!"
 
 p "Users created!"
 p "##################################"
