@@ -28,6 +28,7 @@ class DrugsController < ApplicationController
 
   def edit
     @drug = Drug.find(params[:id])
+    @type = DRUG_TYPE
   end
 
   def update
@@ -44,11 +45,7 @@ class DrugsController < ApplicationController
 
   private
 
-  # def set_drug
-  #   @drug = Drug.find(params[:id])
-  # end
-
   def drug_params
-    params.require(:drug).permit(:name, :price, :description, :category, :delivery_time)
+    params.require(:drug).permit(:name, :price, :description, :photo, :category, :delivery_time)
   end
 end

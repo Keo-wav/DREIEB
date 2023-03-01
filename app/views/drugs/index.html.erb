@@ -6,10 +6,10 @@
   <% @drugs.each do |drug| %>
       <div class="col-md-4">
         <div class="card h-100">
-          <%# <%= image_tag drug.picture, class: 'card-img-top', width: 300 if drug.picture.attached?%>
           <div class="card-body">
             <h4 class="card-name"> <%= link_to drug.name, drug_path(drug) %></h4>
             <h5 class="card-category"> <%= drug.category %></h5>
+            <%= cl_image_tag drug.photo.key, height: 300, width: 400, crop: :fill %>
             <p class="card-description"> <%= drug.description %></p>
             <p class="card-text">Price : <%= drug.price %>$</p>
           </div>

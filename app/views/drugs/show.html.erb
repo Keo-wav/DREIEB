@@ -3,6 +3,7 @@
 <h2><%= @drug.name %></h2>
 <p><%= @drug.category %></p>
 <p><%= @drug.price %></p>
+<%= cl_image_tag @drug.photo.key, height: 300, width: 400, crop: :fill %>
 <p><%= @drug.description %></p>
 <p><%= @drug.delivery_time %></p>
 
@@ -18,3 +19,9 @@
     </div>
   <% end %>
 </div>
+
+
+<%= link_to "Delete",
+  drug_path(@drug),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>

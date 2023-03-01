@@ -2,9 +2,15 @@
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :category,
   as: :select,
   collection: @type.map %>
   <%= f.input :delivery_time %>
   <%= f.button :submit %>
 <% end %>
+
+
+
+
+

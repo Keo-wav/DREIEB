@@ -18,14 +18,16 @@
             <%= link_to "Drugs", "/drugs", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Edit my account", "/users/edit", class: "nav-link" %>
+            <%= link_to "/users/edit", class: "nav-link" do %>
+              <%=  %> <%# afficher le username de l'utilisateur %>
+            <% end %>
           </li>
            <li class="nav-item">
             <%= link_to "Log out", "/users/sign_out", class: "nav-link d-block d-sm-none " %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://cataas.com/cat", class: "avatar dropdown-toggle d-none d-sm-block", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# <%= link_to "Add a Drug", "/drugs/new", class: "dropdown-item" %>
               <%# <%= link_to "List Drugs", "/drugs", class: "dropdown-item" %>
               <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete} %>
