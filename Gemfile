@@ -50,6 +50,9 @@ gem "sassc-rails"
 gem 'bootstrap', '~> 5.2.2'
 gem 'jquery-rails'
 
+# Security / cloudinary / image upload
+gem "dotenv-rails", groups: [:development, :test]
+
 
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
