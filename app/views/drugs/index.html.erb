@@ -1,11 +1,5 @@
 <h1>Découvrez notre menu de drogues</h1>
 
-
-
-            <%# <h5 class="card-category"> <%= drug.category</h5> %>
-            <%# <%= cl_image_tag drug.photo.key, height: 200, width: 300, crop: :fill %>
-            <%# <p class="card-description"> <%= drug.description</p> %>
-
   <div class="row">
       <% @drugs.each do |drug| %>
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -17,6 +11,7 @@
             <div class="card-back" style="background-image: url(<%= drug.photo.url %>)">
           <%= link_to "View details", drug_path(drug) %>
 				</div>
+
           </div>
 			  </div>
          </div>
@@ -24,7 +19,8 @@
       <% end %>
   </div>
 
-
-<div class="btn-container">
-  <button><%= link_to 'New drug', new_drug_path %></button>
-</div>
+<% if current_user.role == 'seller'|| current_user.role == 'admin' %>
+  <div class="btn-container">
+    <button><%= link_to 'New drug', new_drug_path %></button>
+  </div>
+<% end %>
