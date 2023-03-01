@@ -7,7 +7,10 @@
 <p><%= @drug.description %></p>
 <p><%= @drug.delivery_time %></p>
 
-<%= link_to 'Edit', edit_drug_path(@drug) %>
+<% if current_user.id == @drug.user_id || current_user.role == 'admin' %>
+  <%= link_to 'Edit', edit_drug_path(@drug) %>
+<% end %>
+
 
 <div class="form-group">
   <%= simple_form_for [@drug, @order] do |f| %>
@@ -20,8 +23,9 @@
   <% end %>
 </div>
 
-
-<%= link_to "Delete",
-  drug_path(@drug),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<% if current_user.id == @drug.user_id || current_user.role == 'admin' %>
+  <%= link_to "Delete",
+    drug_path(@drug),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>
