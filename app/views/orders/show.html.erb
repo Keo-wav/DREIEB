@@ -9,9 +9,11 @@
 <div class="row">
   <div class="order_show">
     <h1>Order #<%= (rand()*1000000).to_i %> - <%= @order.id %></h1>
+
     <p>NOM : <span><%= @order.drug.name %></p>
     <p>####################################</p>
     <p>DEALER : <%= @order.drug.user.username %></p>
+    <p>STATUT DE LA COMMANDE : <%= @order.status %></p>
     <br>
     <p>DATE DE COMMANDE : <%= ddc %></p>
     <p>CATEGORY : <span><%= @order.drug.category %></span></p>

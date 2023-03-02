@@ -1,0 +1,6 @@
+<h1>My orders</h1>
+
+<% @orders.each do |order| %>
+  <%= link_to order.status, drug_orders_path(drug) %>
+<% end %>
+<%= link_to 'New order', drug_orders_path(@drug) %>
