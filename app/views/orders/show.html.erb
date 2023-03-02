@@ -1,9 +1,28 @@
-<%= link_to 'Home', root_path %>
-<h2>Your order</h2>
-<p><%= @order.drug.name %></p>
-<p><%= @order.drug.category %></p>
-<p><%= @order.drug.price %></p>
-<p><%= @order.drug.description %></p>
-<p><%= @order.drug.delivery_time %></p>
+<%= link_to 'Home', root_path, class: "btn"%>
 
-<%= link_to 'Back to the drugs', drugs_path %>
+<% ddc = @order.created_at.strftime("%d/%m/%Y")%>
+<% dlt = @order.drug.delivery_time%>
+<% processing_days = 1 # délai de traitement de la commande%>
+<% shipping_days = dlt + processing_days # délai total de livraison%>
+<% shipping_date = (@order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+
+<div class="row">
+  <div class="order_show">
+    <h1>Order #<%= (rand()*1000000).to_i %> - <%= @order.id %></h1>
+    <p>NOM : <span><%= @order.drug.name %></p>
+    <p>####################################</p>
+    <p>DEALER : <%= @order.drug.user.username %></p>
+    <br>
+    <p>DATE DE COMMANDE : <%= ddc %></p>
+    <p>CATEGORY : <span><%= @order.drug.category %></span></p>
+    <p>####################################</p>
+    <p><%= @order.drug.description %></p>
+    <p>####################################</p>
+    <p>DATE DE RECEPTION : <%= shipping_date %></p>
+    <p>####################################</p>
+    <p>MONTANT : </p>
+    <p class="price"><span><%= @order.drug.price %>€</span></p>
+  </div>
+</div>
+
+<%= link_to 'Back to the drugs', drugs_path, class: "btn"%>

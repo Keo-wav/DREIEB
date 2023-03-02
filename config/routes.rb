@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :orders, except: :show
   end
   resources :orders, only: :show
+  patch 'orders/:id/approve', to: 'orders#approve'
+  patch 'order/:id/decline', to: 'orders#decline'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

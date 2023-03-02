@@ -8,6 +8,12 @@
   margin-right: 10px;
 
 
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
 
   .navbar-collapse {
     flex-grow: 0;
@@ -30,10 +36,9 @@
     font-size: 1.7em;
     font-weight: 600;
     list-style-type: none;
-    padding-top: 20px;
-    padding-left: 120px;
     align-content: inherit;
     font-family: 'Special Elite', sans-serif;
+    padding-top: 10px;
 
   }
 
