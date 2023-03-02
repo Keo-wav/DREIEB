@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    @orders = Order.find(current_user.id)
+    @orders = current_user.orders
   end
 
   def new
