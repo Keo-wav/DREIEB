@@ -6,12 +6,15 @@
 <% shipping_days = dlt + processing_days # délai total de livraison%>
 <% shipping_date = (@order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
 
+
 <div class="row" style="justify-content: space-evenly;">
   <div class="order_show col-4">
     <h1>Order #<%= (rand()*1000000).to_i %> - <%= @order.id %></h1>
+
     <p>NOM : <span><%= @order.drug.name %></p>
     <p>####################################</p>
     <p>DEALER : <%= @order.drug.user.username %></p>
+    <p>STATUT DE LA COMMANDE : <%= @order.status %></p>
     <br>
     <p>DATE DE COMMANDE : <%= ddc %></p>
     <p>CATEGORY : <span><%= @order.drug.category %></span></p>

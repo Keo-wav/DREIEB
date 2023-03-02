@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def my_orders
+    @orders = current_user.orders
+  end
+
   def new
     @drug = Drug.find(params[:drug_id])
     @order = Order.new
@@ -16,7 +20,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.user = current_user
     @order.drug = Drug.find(params[:drug_id])
-    @order.status = false
+    @order.status = "pending"
     if @order.save!
       redirect_to order_path(@order)
     else
