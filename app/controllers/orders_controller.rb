@@ -24,6 +24,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def approve
+    @order = Order.find(params[:id])
+    @order.status = 'approved'
+  end
+
+  def decline
+    @order = Order.find(params[:id])
+    @order.status = 'declined'
+  end
+
   # def edit
   #   @order = Order.find(params[:id])
   # end
