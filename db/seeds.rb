@@ -182,4 +182,72 @@ p "All Drugs created!"
 
 p "##################################"
 
+p "Creating orders..."
+
+order_1 = Order.new(
+  :user_id => buyer.id,
+  :drug_id => drug_WC.id,
+  :status => "pending"
+)
+
+order_1.save!
+
+p "first order created!"
+
+order_2 = Order.new(
+  :user_id => buyer.id,
+  :drug_id => drug_WW.id,
+  :status => "pending"
+)
+
+order_2.save!
+
+p "second order created!"
+
+order_3 = Order.new(
+  :user_id => buyer.id,
+  :drug_id => drug_LSD.id,
+  :status => "pending"
+)
+
+order_3.save!
+
+p "third order created!"
+
+order_4 = Order.new(
+  :user_id => buyer.id,
+  :drug_id => drug_XTC.id,
+  :status => "approved"
+)
+
+order_4.save!
+
+p "fourth order created!"
+
+order_5 = Order.new(
+  :user_id => buyer.id,
+  :drug_id => drug_WH.id,
+  :status => "pending"
+)
+
+order_5.save!
+
+p "fifth order created!"
+
+order_6 = Order.new(
+  :user_id => buyer.id,
+  :drug_id => drug_S.id,
+  :status => "declined"
+)
+
+order_6.save!
+
+p "sixth order created!"
+
+p "##################################"
+
+p "All Orders created!"
+
+
+
 p "Seed finished!"
