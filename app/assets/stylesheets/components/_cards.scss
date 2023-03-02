@@ -2,27 +2,23 @@
 
 $transition-time: 1.4s;
 
-
-  .cards-index {
-
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-
-      .row{
-        display: flex;
-    }
-
-    h1 {
-      font-size: 3em;
-      font-weight: 600;
-      color: #c1a61b;
-      margin: 0;
-      padding: 25px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.cards-index {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  .row{
+    display: flex;
+  }
+  h1 {
+    font-size: 3em;
+    font-weight: 600;
+    color: #c1a61b;
+    margin: 0;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
 
 
@@ -57,7 +53,6 @@ $transition-time: 1.4s;
         }
       }
     }
-
     .cover{
       position: fixed;
       height: 100%;
@@ -128,7 +123,7 @@ $transition-time: 1.4s;
       height: 400px;
       width: 100%;
       background: #0b0f08;
-      background-size: contain;
+      background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       transform-style: preserve-3d;
@@ -157,19 +152,14 @@ $transition-time: 1.4s;
       }
     }
   }
-
   .cover .card-name a{
     text-decoration: none!important;
     color: aliceblue!important;
   }
-
-
   .btn-container{
-
     width: 100%;
     height: auto;
     text-align: center;
-
     button {
       background-color: #0b0f08;
       color: white;
