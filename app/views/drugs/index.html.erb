@@ -1,25 +1,29 @@
-<h1>Découvrez notre menu de drogues</h1>
-
-  <div class="row">
-      <% @drugs.each do |drug| %>
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="card_content">
-			  <div class="card">
-				  <div class="cover item-a">
-					  <h4 class="card-name"> <%= link_to drug.name, drug_path(drug) %></h4>
-					  <span class="price"> <%= drug.price %> € </span>
-            <div class="card-back" style="background-image: url(<%= drug.photo.url %>)">
-          <%= link_to "View details", drug_path(drug) %>
-				</div>
+<div class="cards-index">
+  <h1>Plongez avec nous dans l'illégalité ! </h1>
+  <div class="row cards p-1">
+    <% @drugs.each do |drug| %>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card_content">
+          <div class="card">
+            <div class="cover item-a">
+              <h4 class="card-name"> <%= link_to drug.name, drug_path(drug) %></h4>
+              <span class="price"> <%= drug.price %> € </span>
+              <div class="card-back" style="background-image: url(<%= drug.photo.url %>)">
+            <%= link_to "View details", drug_path(drug) %>
           </div>
-			  </div>
-         </div>
-		</div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
       <% end %>
   </div>
 
 <% if current_user.role == 'seller'|| current_user.role == 'admin' %>
   <div class="btn-container">
-    <button><%= link_to 'New drug', new_drug_path %></button>
+    <%= link_to 'New drug', new_drug_path, class:"btn" %>
   </div>
-<% end %>
+  <% end %>
+</div>
+
