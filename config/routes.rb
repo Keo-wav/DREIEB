@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :drugs do
-    resources :orders, except: :show
+    resources :orders, except: [:show, :destroy]
   end
-  resources :orders, only: :show
+  resources :orders, only: [:show, :destroy]
   patch 'orders/:id/approve', to: 'orders#approve', as: 'approve'
   patch 'orders/:id/decline', to: 'orders#decline', as: 'decline'
   get 'users/:id/my_orders', to: 'orders#my_orders'

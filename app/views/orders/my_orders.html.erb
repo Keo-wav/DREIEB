@@ -26,16 +26,16 @@
 
   <% elsif current_user.role == 'seller' || current_user.role == 'admin' %>
 
-    <h2>ORDERS PENDING APPROVAL</h2>
-    <% @orders.where(status: 'pending').each do |order| %>
+    <h2>SELLS PENDING APPROVAL</h2>
+    <% @sells.where(status: 'pending').each do |order| %>
       <%= display_order(order, 'pending') %>
     <% end %>
-    <h2>APPROVED ORDERS</h2>
-    <% @orders.where(status: 'approved').each do |order| %>
+    <h2>APPROVED SELLS</h2>
+    <% @sells.where(status: 'approved').each do |order| %>
       <%= display_order(order, 'approved') %>
     <% end %>
-    <h2>DECLINED ORDERS</h2>
-    <% @orders.where(status: 'declined').each do |order| %>
+    <h2>DECLINED SELLS</h2>
+    <% @sells.where(status: 'declined').each do |order| %>
       <%= display_order(order, 'declined') %>
     <% end %>
   <% end %>
