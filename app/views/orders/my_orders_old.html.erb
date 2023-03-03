@@ -1,0 +1,178 @@
+<h1>My orders</h1>
+
+<div class='row' style='justify-content: space-evenly;'>
+
+  <% if current_user.role = 'buyer' %>
+
+    <h2>ORDERS PENDING APPROVAL</h2>
+    <% @orders.each do |order| %>
+      <% ddc = order.created_at.strftime("%d/%m/%Y")%>
+      <% dlt = order.drug.delivery_time%>
+      <% processing_days = 1 # délai de traitement de la commande%>
+      <% shipping_days = dlt + processing_days # délai total de livraison%>
+      <% shipping_date = (order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+      <% send_by_date = (order.created_at + (dlt + processing_days).days).strftime("%d/%m/%Y")%>
+
+        <% if order.status == 'pending' %>
+          <div class="order_show col-4">
+            <h1>Order #<%= (rand()*1000000).to_i %> - <%= order.id %></h1>
+            <p>NOM : <span><%= order.drug.name %></p>
+            <p>####################################</p>
+            <p>DEALER : <%= order.drug.user.username %></p>
+            <p>STATUT DE LA COMMANDE : <%= order.status %></p>
+            <br>
+            <p>DATE DE COMMANDE : <%= ddc %></p>
+            <p>CATEGORY : <span><%= order.drug.category %></span></p>
+            <p>####################################</p>
+            <p>A ENVOYER AVANT LE : <%= send_by_date %></p>
+            <p>DATE DE RECEPTION : <%= shipping_date %></p>
+            <p>####################################</p>
+            <p>MONTANT : </p>
+            <p class="price"><span><%= order.drug.price %>€</span></p>
+          </div>
+        <% end %>
+    <% end %>
+
+    <h2>APPROVED ORDERS</h2>
+    <% @orders.each do |order| %>
+      <% ddc = order.created_at.strftime("%d/%m/%Y")%>
+      <% dlt = order.drug.delivery_time%>
+      <% processing_days = 1 # délai de traitement de la commande%>
+      <% shipping_days = dlt + processing_days # délai total de livraison%>
+      <% shipping_date = (order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+        <% if order.status == 'approved' %>
+          <div class="order_show col-4">
+            <h1>Order #<%= (rand()*1000000).to_i %> - <%= order.id %></h1>
+            <p>NOM : <span><%= order.drug.name %></p>
+            <p>####################################</p>
+            <p>DEALER : <%= order.drug.user.username %></p>
+            <p>STATUT DE LA COMMANDE : <%= order.status %></p>
+            <br>
+            <p>DATE DE COMMANDE : <%= ddc %></p>
+            <p>CATEGORY : <span><%= order.drug.category %></span></p>
+            <p>####################################</p>
+            <p><%= order.drug.description %></p>
+            <p>####################################</p>
+            <p>DATE DE RECEPTION : <%= shipping_date %></p>
+            <p>####################################</p>
+            <p>MONTANT : </p>
+            <p class="price"><span><%= order.drug.price %>€</span></p>
+          </div>
+        <% end %>
+    <% end %>
+
+    <h2>DECLINED ORDERS</h2>
+    <% @orders.each do |order| %>
+    <% ddc = order.created_at.strftime("%d/%m/%Y")%>
+      <% dlt = order.drug.delivery_time%>
+      <% processing_days = 1 # délai de traitement de la commande%>
+      <% shipping_days = dlt + processing_days # délai total de livraison%>
+      <% shipping_date = (order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+        <% if order.status == 'declined' %>
+          <div class="order_show col-4">
+            <h1>Order #<%= (rand()*1000000).to_i %> - <%= order.id %></h1>
+            <p>NOM : <span><%= order.drug.name %></p>
+            <p>####################################</p>
+            <p>DEALER : <%= order.drug.user.username %></p>
+            <p>STATUT DE LA COMMANDE : <%= order.status %></p>
+            <br>
+            <p>DATE DE COMMANDE : <%= ddc %></p>
+            <p>CATEGORY : <span><%= order.drug.category %></span></p>
+            <p>####################################</p>
+            <p><%= order.drug.description %></p>
+            <p>####################################</p>
+            <p>DATE DE RECEPTION : <%= shipping_date %></p>
+            <p>####################################</p>
+            <p>MONTANT : </p>
+            <p class="price"><span><%= order.drug.price %>€</span></p>
+          </div>
+        <% end %>
+    <% end %>
+
+  <% else %>
+    <% @orders.each do |order| %>
+      <% ddc = order.created_at.strftime("%d/%m/%Y")%>
+      <% dlt = order.drug.delivery_time%>
+      <% processing_days = 1 # délai de traitement de la commande%>
+      <% shipping_days = dlt + processing_days # délai total de livraison%>
+      <% shipping_date = (order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+        <% if order.status == 'pending' %>
+          <div class="order_show col-4">
+            <h1>Order #<%= (rand()*1000000).to_i %> - <%= order.id %></h1>
+            <p>NOM : <span><%= order.drug.name %></p>
+            <p>####################################</p>
+            <p>DEALER : <%= order.drug.user.username %></p>
+            <p>STATUT DE LA COMMANDE : <%= order.status %></p>
+            <br>
+            <p>DATE DE COMMANDE : <%= ddc %></p>
+            <p>CATEGORY : <span><%= order.drug.category %></span></p>
+            <p>####################################</p>
+            <p><%= order.drug.description %></p>
+            <p>####################################</p>
+            <p>DATE DE RECEPTION : <%= shipping_date %></p>
+            <p>####################################</p>
+            <p>MONTANT : </p>
+            <p class="price"><span><%= order.drug.price %>€</span></p>
+          </div>
+        <% end %>
+    <% end %>
+
+    <h2>APPROVED ORDERS</h2>
+    <% @orders.each do |order| %>
+      <% ddc = order.created_at.strftime("%d/%m/%Y")%>
+      <% dlt = order.drug.delivery_time%>
+      <% processing_days = 1 # délai de traitement de la commande%>
+      <% shipping_days = dlt + processing_days # délai total de livraison%>
+      <% shipping_date = (order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+        <% if order.status == 'approved' %>
+          <div class="order_show col-4">
+            <h1>Order #<%= (rand()*1000000).to_i %> - <%= order.id %></h1>
+            <p>NOM : <span><%= order.drug.name %></p>
+            <p>####################################</p>
+            <p>DEALER : <%= order.drug.user.username %></p>
+            <p>STATUT DE LA COMMANDE : <%= order.status %></p>
+            <br>
+            <p>DATE DE COMMANDE : <%= ddc %></p>
+            <p>CATEGORY : <span><%= order.drug.category %></span></p>
+            <p>####################################</p>
+            <p><%= order.drug.description %></p>
+            <p>####################################</p>
+            <p>DATE DE RECEPTION : <%= shipping_date %></p>
+            <p>####################################</p>
+            <p>MONTANT : </p>
+            <p class="price"><span><%= order.drug.price %>€</span></p>
+          </div>
+        <% end %>
+    <% end %>
+
+    <h2>DECLINED ORDERS</h2>
+    <% @orders.each do |order| %>
+      <% ddc = order.created_at.strftime("%d/%m/%Y")%>
+      <% dlt = order.drug.delivery_time%>
+      <% processing_days = 1 # délai de traitement de la commande%>
+      <% shipping_days = dlt + processing_days # délai total de livraison%>
+      <% shipping_date = (order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+        <% if order.status == 'declined' %>
+            <div class="order_show col-4">
+              <h1>Order #<%= (rand()*1000000).to_i %> - <%= order.id %></h1>
+              <p>NOM : <span><%= order.drug.name %></p>
+              <p>####################################</p>
+              <p>DEALER : <%= order.drug.user.username %></p>
+              <p>STATUT DE LA COMMANDE : <%= order.status %></p>
+              <br>
+              <p>DATE DE COMMANDE : <%= ddc %></p>
+              <p>CATEGORY : <span><%= order.drug.category %></span></p>
+              <p>####################################</p>
+              <p><%= order.drug.description %></p>
+              <p>####################################</p>
+              <p>DATE DE RECEPTION : <%= shipping_date %></p>
+              <p>####################################</p>
+              <p>MONTANT : </p>
+              <p class="price"><span><%= order.drug.price %>€</span></p>
+            </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to 'Back to the drugs', drugs_path, class: "btn"%>

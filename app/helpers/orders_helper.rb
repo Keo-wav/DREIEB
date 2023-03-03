@@ -23,20 +23,14 @@ module OrdersHelper
         concat content_tag(:p, "####################################")
         concat content_tag(:p, "MONTANT : ")
         concat content_tag(:p, content_tag(:span, "#{order.drug.price}€"), class: "price")
-
         if current_user.role == "buyer"
           if order.status == "pending"
-            concat content_tag(:div, class: "order-button") do
-              concat link_to("Annuler", order_path(order), method: :delete, class: "btn btn-danger")
-            end
+            concat render(partial: "orders/actions_btn", locals: {order: order, delete: true})
           end
         elsif current_user.role == "seller"
           if current_user.id == order.drug.user.id || current_user.role == "admin"
             if order.status == "pending"
-              concat content_tag(:div, class: "order-button") do
-                concat link_to("Approve order", approve_order_path(order), method: :patch, class: "btn btn-success")
-                concat link_to("Decline order", decline_order_path(order), method: :patch, class: "btn btn-danger")
-              end
+              concat render(partial: "orders/actions_btn", locals: {order: order, delete: false})
             end
           end
         end

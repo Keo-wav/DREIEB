@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     resources :orders, except: :show
   end
   resources :orders, only: :show
-  patch 'orders/:id/approve', to: 'orders#approve'
-  patch 'orders/:id/decline', to: 'orders#decline'
+  patch 'orders/:id/approve', to: 'orders#approve', as: 'approve'
+  patch 'orders/:id/decline', to: 'orders#decline', as: 'decline'
   get 'users/:id/my_orders', to: 'orders#my_orders'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

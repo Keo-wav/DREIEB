@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :drugs
-  has_many :orders
+  has_many :sells, through: :drugs, source: :orders
 end
