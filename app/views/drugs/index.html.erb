@@ -1,15 +1,15 @@
 <div class="cards-index">
   <h1>Plongez avec nous dans l'illégalité ! </h1>
-<div class="row cards p-1">
-  <% i = 0 %>
-  <% @drugs.each do |drug| %>
+  <div class="row cards p-1">
+    <% i = 0 %>
+    <% @drugs.each do |drug| %>
       <% i += 1 %>
-      <% if i == 3 %>
+      <% if i == 3 || i == 21 || i == 58 %>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="card_content">
             <div class="card">
               <div class="cover item-a">
-                <h4 class="card-name"> Corrompus </h4>
+                <h4 class="card-name public_649982_lol_bien_chiant_774950"> Corrompus </h4>
                 <span class="price"> 666 € </span>
                 <div class="card-back" style="background-image: url('https://ca.slack-edge.com/T02NE0241-U04JZJUAC5B-6e7ac04ff0e2-512')">
                   <%= link_to "View details", "https://corrompus-charleswoehl.herokuapp.com" %>
@@ -18,13 +18,12 @@
             </div>
           </div>
         </div>
-
-      <% elsif i == 7 %>
+      <% elsif i == 7 || i == 14 || i == 41 %>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="card_content">
             <div class="card">
               <div class="cover item-a">
-                <h4 class="card-name"> Air Nerd Vehicle </h4>
+                <h4 class="card-name public_649982_lol_bien_chiant_774950"> Air Nerd Vehicle </h4>
                 <span class="price"> 777 € </span>
                 <div class="card-back" style="background-image: url('https://media.giphy.com/media/9B4CRDjSef39Q2Ku8r/giphy.gif')">
                   <%= link_to "View details", "https://airnerdvehicle.herokuapp.com/" %>
@@ -33,29 +32,26 @@
             </div>
           </div>
         </div>
-
-        <% else %>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="card_content">
-              <div class="card">
-                <div class="cover item-a">
-                  <h4 class="card-name"> <%= link_to drug.name, drug_path(drug) %></h4>
-                  <span class="price"> <%= drug.price %> € </span>
-                  <div class="card-back" style="background-image: url(<%= drug.photo.url %>)">
-                    <%= link_to "View details", drug_path(drug) %>
-                  </div>
+      <% else %>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="card_content">
+            <div class="card">
+              <div class="cover item-a">
+                <h4 class="card-name"> <%= link_to drug.name, drug_path(drug) %></h4>
+                <span class="price"> <%= drug.price %> € </span>
+                <div class="card-back" style="background-image: url(<%= drug.photo.url %>)">
+                  <%= link_to "View details", drug_path(drug) %>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
     <% end %>
-</div>
-
-
-<% if current_user.role == 'seller'|| current_user.role == 'admin' %>
-  <div class="btn-container">
-    <%= link_to 'New drug', new_drug_path, class:"btn" %>
   </div>
+  <% if current_user.role == 'seller'|| current_user.role == 'admin' %>
+    <div class="btn-container">
+      <%= link_to 'New drug', new_drug_path, class:"btn" %>
+    </div>
   <% end %>
 </div>
