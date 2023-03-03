@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    @orders = current_user.orders
+    @orders = current_user.sells
   end
 
   def new
