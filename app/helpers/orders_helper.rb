@@ -26,8 +26,9 @@ module OrdersHelper
         if current_user.role == "buyer"
           if order.status == "pending"
             concat render(partial: "orders/actions_btn", locals: {order: order, delete: true})
+
           end
-        elsif current_user.role == "seller"
+        elsif current_user.role == "seller" || current_user.role == "admin"
           if current_user.id == order.drug.user.id || current_user.role == "admin"
             if order.status == "pending"
               concat render(partial: "orders/actions_btn", locals: {order: order, delete: false})
