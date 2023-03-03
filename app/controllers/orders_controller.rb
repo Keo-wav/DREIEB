@@ -8,7 +8,8 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    @orders = current_user.sells
+    @sells = current_user.sells
+    @orders = current_user.orders
   end
 
   def new
@@ -30,12 +31,14 @@ class OrdersController < ApplicationController
 
   def approve
     @order = Order.find(params[:id])
-    @order.status = 'approved'
+    @order.update(status: 'approved')
+    redirect_to "/#{current_user.id}/my_orders"
   end
 
   def decline
     @order = Order.find(params[:id])
-    @order.status = 'declined'
+    @order.update(status: 'decline')
+    redirect_to "/#{current_user.id}/my_orders"
   end
 
   # def edit
@@ -48,11 +51,11 @@ class OrdersController < ApplicationController
   #   redirect_to order_path(@order)
   # end
 
-  # def destroy
-  #   @order = Order.find(params[:id])
-  #   @order.destroy
-  #   redirect_to orders_path, status: :see_other
-  # end
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to "/#{current_user.id}/my_orders", status: :see_other
+  end
 
   private
 
