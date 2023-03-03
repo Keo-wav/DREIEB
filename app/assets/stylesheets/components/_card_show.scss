@@ -29,7 +29,9 @@
     }
   }
 }
-
+.product-grid.show{
+  height: calc(100vh - 50px);
+}
 .container_drug_name {
   display: flex;
   flex-direction: column;

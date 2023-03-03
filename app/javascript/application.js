@@ -15,6 +15,7 @@ console.log('%cNous vous rappelons qu\'il est important de rester vigilant en li
 console.log('%cSi vous avez besoin d\'aide, n\'hésitez pas à contacter la police au 4242.', 'color: #FFF; font-weight: bold; font-size: 16px;');
 console.log("###########################");
 console.log('%cPour plus d\'informations sur la sécurité sur Internet, veuillez consulter notre site Web dédié.', 'color: #FFF; font-size: 14px;');
+console.log(" ");
 console.log("###########################");
 console.log(" ");
 console.log(" ");
