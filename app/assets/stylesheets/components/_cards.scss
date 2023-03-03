@@ -27,13 +27,15 @@ $transition-time: 1.4s;
     height: 400px;
     width: 100%;
     margin: 10px 0;
-    transition: ease all $transition-time;
     perspective: 1200px;
     text-decoration: none!important;
     color: aliceblue!important;
     background-color: transparent!important;
     border: none;
     &:hover{
+
+      transition: ease all $transition-time;
+
       .cover{
         transform: rotateX(0deg) rotateY(-180deg);
         &:before{
@@ -176,3 +178,19 @@ $transition-time: 1.4s;
     text-decoration: none;}
   }
 }
+
+
+.cards-index {
+  animation-duration: .1s;
+  animation-delay: $transition-time;
+  animation-name: toto;
+  }
+  @keyframes toto {
+    from {
+      opacity: 0;
+
+    }
+    to {
+      opacity: 1;
+    }
+  }
