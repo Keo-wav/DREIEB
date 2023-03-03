@@ -1,5 +1,5 @@
 
-<div class="product-grid">
+<div class="product-grid show">
   <div class="back-button m-3">
     <%= link_to 'Back to the drugs', drugs_path, class: 'btn' %>
   </div>
@@ -21,26 +21,28 @@
           <p>Description: <%= @drug.description %></p>
           <p>Delivery time: <%= @drug.delivery_time %></p>
           <p>Price: <%= @drug.price %>€</p>
-            <div class="order-button">
-            <%= simple_form_for [@drug, @order] do |f| %>
-              <%# submit with btn class%>
-              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-              <%= f.input :drug_id, as: :hidden, input_html: { value: @drug.id } %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'pending' } %>
-              <%= f.submit 'Buy', class: 'btn btn-primary' %>
-            <% end %>
+          <% if current_user.id == @drug.user_id || current_user.role == 'admin' %>
+            <div class="buttons p-3">
+                <%= link_to 'Edit', edit_drug_path(@drug), class: 'btn btn-warning'%>
+
+                <%= link_to "Delete",
+                  drug_path(@drug),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger'%>
             </div>
+          <% end %>
+          <% if current_user.role == "buyer" %>
+            <div class="order-button">
+              <%= simple_form_for [@drug, @order] do |f| %>
+                <%# submit with btn class%>
+                <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+                <%= f.input :drug_id, as: :hidden, input_html: { value: @drug.id } %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'pending' } %>
+                <%= f.submit 'Buy', class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<% if current_user.id == @drug.user_id || current_user.role == 'admin' %>
-  <div class="buttons p-3">
-      <%= link_to 'Edit', edit_drug_path(@drug), class: 'btn btn-warning'%>
-
-      <%= link_to "Delete",
-        drug_path(@drug),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger'%>
-  </div>
-<% end %>
