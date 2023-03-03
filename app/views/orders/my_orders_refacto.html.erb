@@ -1,0 +1,43 @@
+<div class="product-grid">
+  <div class="back-button m-3">
+    <%= link_to 'Back to the drugs', drugs_path, class: 'btn' %>
+  </div>
+</div>
+
+<h1>My orders</h1>
+
+<div class='row' style='justify-content: space-evenly;'>
+
+  <% if current_user.role == 'buyer' %>
+
+    <h2>ORDERS PENDING APPROVAL</h2>
+    <% Order.where(status: 'pending').each do |order| %>
+      <%= display_order(order, 'pending') %>
+    <% end %>
+
+    <h2>PAST ORDERS</h2>
+    <% Order.where(status: 'approved').each do |order| %>
+      <%= display_order(order, 'approved') %>
+    <% end %>
+
+    <% Order.where(status: 'declined').each do |order| %>
+      <%= display_order(order, 'declined') %>
+    <% end %>
+
+  <% elsif current_user.role == 'seller' || current_user.role == 'admin' %>
+
+    <h2>ORDERS PENDING APPROVAL</h2>
+    <% Order.where(status: 'pending').each do |order| %>
+      <%= display_order(order, 'pending') %>
+    <% end %>
+    <h2>APPROVED ORDERS</h2>
+    <% Order.where(status: 'approved').each do |order| %>
+      <%= display_order(order, 'approved') %>
+    <% end %>
+    <h2>DECLINED ORDERS</h2>
+    <% Order.where(status: 'declined').each do |order| %>
+      <%= display_order(order, 'declined') %>
+    <% end %>
+  <% end %>
+
+</div>
