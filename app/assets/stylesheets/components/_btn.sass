@@ -1,4 +1,4 @@
-a.btn
+a.btn, div.btn
   padding: 0.5rem 1rem
   border-radius: 0.25rem
   text-align: center
@@ -62,3 +62,17 @@ a.btn
     &:focus
       outline: 0
       box-shadow: 0 0 0 0.2rem rgba($warning, 0.5)
+
+
+div.btn
+  &:hover
+    color: $white !important
+    background-color: $primary !important
+    border-color: $primary !important
+    border: 1px solid $primary !important
+
+button, [type="button"], [type="reset"], [type="submit"]
+    color: $white !important
+    background-color: $primary !important
+    border-color: $primary !important
+    border: 1px solid $primary !important
