@@ -27,13 +27,15 @@ $transition-time: 1.4s;
     height: 400px;
     width: 100%;
     margin: 10px 0;
-    transition: ease all $transition-time;
     perspective: 1200px;
     text-decoration: none!important;
     color: aliceblue!important;
     background-color: transparent!important;
     border: none;
     &:hover{
+
+      transition: ease all $transition-time;
+
       .cover{
         transform: rotateX(0deg) rotateY(-180deg);
         &:before{
@@ -176,6 +178,7 @@ $transition-time: 1.4s;
     text-decoration: none;}
   }
 }
+
 
 // Bandeau de couleur pour signifier que c'est une publicité, en :before
 .public_649982_lol_bien_chiant_774950{
