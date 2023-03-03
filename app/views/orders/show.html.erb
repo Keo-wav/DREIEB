@@ -1,17 +1,29 @@
-<%= link_to 'Home', root_path, class: "btn"%>
-
 <% ddc = @order.created_at.strftime("%d/%m/%Y")%>
 <% dlt = @order.drug.delivery_time%>
 <% processing_days = 1 # délai de traitement de la commande%>
 <% shipping_days = dlt + processing_days # délai total de livraison%>
 <% shipping_date = (@order.created_at + shipping_days.days).strftime("%d/%m/%Y")%>
+<% bitcoin_price = 22111 %>
+<% bitcoin_amount = (@order.drug.price).to_f / bitcoin_price %>
+<% bitcoin_amount = bitcoin_amount.round(5) %>
+<% etherium_price = 1552 %>
+<% etherium_amount = (@order.drug.price).to_f / etherium_price %>
+<% etherium_amount = etherium_amount.round(5) %>
 
-<div class="row">
-  <div class="order_show">
+<div class="product-grid">
+  <div class="back-button m-3">
+    <%= link_to 'Back to the drugs', drugs_path, class: 'btn' %>
+  </div>
+</div>
+
+<div class="row" style="justify-content: space-evenly;">
+  <div class="order_show col-4">
     <h1>Order #<%= (rand()*1000000).to_i %> - <%= @order.id %></h1>
+
     <p>NOM : <span><%= @order.drug.name %></p>
     <p>####################################</p>
     <p>DEALER : <%= @order.drug.user.username %></p>
+    <p>STATUT DE LA COMMANDE : <%= @order.status %></p>
     <br>
     <p>DATE DE COMMANDE : <%= ddc %></p>
     <p>CATEGORY : <span><%= @order.drug.category %></span></p>
@@ -22,7 +34,9 @@
     <p>####################################</p>
     <p>MONTANT : </p>
     <p class="price"><span><%= @order.drug.price %>€</span></p>
+    <p class="price"><span><i class="fa-solid fa-bitcoin-sign"></i> <%= bitcoin_amount %></span></p>
+    <p class="price"><span><i class="fa-brands fa-ethereum"></i> <%= etherium_amount %></span></p>
+    <br><br><br><br>
+    <p><small>A TRANSFERER SUR : 1A1zP1eP<%=(rand()*10).to_i%>QGefi<%=(rand()*10).to_i%>DMPTfTL<%=(rand()*10).to_i%>SLmv<%=(rand()*10).to_i%>DivfNa </small></p>
   </div>
 </div>
-
-<%= link_to 'Back to the drugs', drugs_path, class: "btn"%>
